@@ -1,0 +1,1095 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>Fondue For Two!</title>
+
+
+<style>
+
+/* =========================
+   GENERAL PAGE
+========================= */
+
+body {
+
+    margin: 0;
+
+    background: #d9edf0;
+
+    font-family: Arial, Helvetica, sans-serif;
+
+    color: #4d403c;
+
+    font-size: 13px;
+
+}
+
+
+/* MAIN WEBSITE */
+
+#page {
+
+    width: 900px;
+
+    max-width: 94%;
+
+    margin: 25px auto;
+
+    background: #fffdf8;
+
+    border: 1px solid #9b7c72;
+
+    box-shadow: 5px 5px 0 #a8bec1;
+
+}
+
+
+/* =========================
+   HEADER
+========================= */
+
+#header {
+
+    height: 150px;
+
+    position: relative;
+
+    overflow: hidden;
+
+    background:
+        linear-gradient(
+            135deg,
+            #f6b6c7,
+            #e98da9
+        );
+
+    border-bottom: 5px solid white;
+
+}
+
+
+/* decorative stripe */
+
+#header:before {
+
+    content: "";
+
+    position: absolute;
+
+    width: 130%;
+
+    height: 45px;
+
+    left: -15%;
+
+    top: 25px;
+
+    background: #f9dce4;
+
+    transform: rotate(-6deg);
+
+    opacity: .8;
+
+}
+
+
+/* second stripe */
+
+#header:after {
+
+    content: "";
+
+    position: absolute;
+
+    width: 130%;
+
+    height: 40px;
+
+    left: -15%;
+
+    top: 90px;
+
+    background: #f7c5d3;
+
+    transform: rotate(5deg);
+
+}
+
+
+/* LOGO */
+
+.logo {
+
+    position: relative;
+
+    z-index: 2;
+
+    text-align: center;
+
+    padding-top: 25px;
+
+    font-family:
+        "Comic Sans MS",
+        "Trebuchet MS",
+        cursive;
+
+    font-size: 58px;
+
+    font-weight: bold;
+
+    color: white;
+
+    text-shadow:
+
+        3px 3px 0 #9e5168,
+
+        5px 5px 0 rgba(255,255,255,.3);
+
+}
+
+
+/* SUBTITLE */
+
+.subtitle {
+
+    position: relative;
+
+    z-index: 3;
+
+    text-align: center;
+
+    margin-top: 5px;
+
+    color: #743d51;
+
+    font-size: 16px;
+
+    font-weight: bold;
+
+}
+
+
+/* =========================
+   NAVIGATION
+========================= */
+
+#nav {
+
+    text-align: center;
+
+    background: #f5e7d9;
+
+    border-top: 1px solid #cda895;
+
+    border-bottom: 1px solid #cda895;
+
+}
+
+
+#nav a {
+
+    display: inline-block;
+
+    padding: 9px 21px;
+
+    color: #704e43;
+
+    font-weight: bold;
+
+    text-decoration: none;
+
+    border-right: 1px dotted #b99583;
+
+}
+
+
+#nav a:first-child {
+
+    border-left: 1px dotted #b99583;
+
+}
+
+
+#nav a:hover {
+
+    background: #fff5eb;
+
+    color: #b33f68;
+
+}
+
+
+/* =========================
+   MAIN CONTENT
+========================= */
+
+#main {
+
+    padding: 22px 28px 30px;
+
+}
+
+
+.columns {
+
+    display: grid;
+
+    grid-template-columns: 210px 1fr;
+
+    gap: 25px;
+
+}
+
+
+/* =========================
+   SIDEBAR
+========================= */
+
+.sidebar {
+
+    background: #eef5e7;
+
+    border: 1px solid #a9b99c;
+
+    padding: 13px;
+
+    box-shadow:
+        2px 2px 0 #d4dfca;
+
+}
+
+
+/* SIDEBAR TITLE */
+
+.sidebar h3 {
+
+    margin: 0 -13px 10px;
+
+    padding: 7px;
+
+    text-align: center;
+
+    background: #c9dfbb;
+
+    color: #536447;
+
+    font-family:
+        "Comic Sans MS",
+        "Trebuchet MS",
+        sans-serif;
+
+}
+
+
+/* SIDEBAR TEXT */
+
+.sidebar p {
+
+    font-size: 12px;
+
+    line-height: 1.45;
+
+}
+
+
+/* =========================
+   PINK STICKER
+========================= */
+
+.sticker {
+
+    width: 130px;
+
+    height: 75px;
+
+    margin: 15px auto;
+
+    background: #f5c6d2;
+
+    border: 2px dashed #a85c71;
+
+    transform: rotate(-2deg);
+
+    display: flex;
+
+    align-items: center;
+
+    justify-content: center;
+
+    text-align: center;
+
+    font-weight: bold;
+
+    color: #813d54;
+
+    font-family:
+        "Comic Sans MS",
+        "Trebuchet MS",
+        sans-serif;
+
+}
+
+
+/* =========================
+   LITTLE FAN NOTES
+========================= */
+
+.fan-note {
+
+    margin: 17px 0;
+
+    padding: 10px;
+
+    background: #fff8ce;
+
+    border: 1px solid #c9bd77;
+
+    box-shadow:
+        2px 2px 0 #ddd3a4;
+
+    transform: rotate(-1deg);
+
+    font-family:
+        "Comic Sans MS",
+        "Trebuchet MS",
+        sans-serif;
+
+    font-size: 12px;
+
+    line-height: 1.5;
+
+}
+
+
+.fan-note strong {
+
+    color: #9a4e65;
+
+}
+
+
+/* second note */
+
+.santana-note {
+
+    margin: 17px 0;
+
+    padding: 10px;
+
+    background: #f8dce5;
+
+    border: 1px dashed #b66a80;
+
+    transform: rotate(1deg);
+
+    font-family:
+        "Comic Sans MS",
+        "Trebuchet MS",
+        sans-serif;
+
+    font-size: 12px;
+
+    line-height: 1.5;
+
+    color: #744252;
+
+}
+
+
+/* =========================
+   SHOW CONTENT
+========================= */
+
+.content h1 {
+
+    font-family:
+        "Comic Sans MS",
+        "Trebuchet MS",
+        cursive;
+
+    font-size: 30px;
+
+    color: #9a4e65;
+
+    margin: 0 0 3px;
+
+}
+
+
+.intro {
+
+    font-size: 12px;
+
+    color: #76645e;
+
+    margin-bottom: 14px;
+
+}
+
+
+/* =========================
+   VIDEO
+========================= */
+
+.video-box {
+
+    position: relative;
+
+    background: #222;
+
+    border: 8px solid #f0dfd2;
+
+    outline: 1px solid #9e8477;
+
+    box-shadow:
+        3px 4px 0 #cdb9ad;
+
+}
+
+
+video {
+
+    display: block;
+
+    width: 100%;
+
+    aspect-ratio: 16 / 9;
+
+    background: black;
+
+}
+
+
+/* =========================
+   PLAY BUTTON
+========================= */
+
+.play-screen {
+
+    position: absolute;
+
+    inset: 0;
+
+    display: flex;
+
+    align-items: center;
+
+    justify-content: center;
+
+    background: rgba(255,255,255,.08);
+
+    cursor: pointer;
+
+}
+
+
+.play-screen.hidden {
+
+    display: none;
+
+}
+
+
+.play-button {
+
+    padding: 15px 27px;
+
+    border-radius: 12px;
+
+    border: 4px solid white;
+
+    background: #e56d91;
+
+    color: white;
+
+    font-family:
+        "Comic Sans MS",
+        "Trebuchet MS",
+        sans-serif;
+
+    font-size: 24px;
+
+    font-weight: bold;
+
+    box-shadow:
+        3px 3px 0 #783c50;
+
+    cursor: pointer;
+
+}
+
+
+.play-button:hover {
+
+    background: #d9547c;
+
+}
+
+
+/* =========================
+   HOT DISH NOTE
+========================= */
+
+.note {
+
+    margin-top: 17px;
+
+    padding: 11px 14px;
+
+    background: #fff8ce;
+
+    border: 1px solid #c9bd77;
+
+    transform: rotate(.3deg);
+
+}
+
+
+.note strong {
+
+    color: #8c5c1f;
+
+}
+
+
+/* =========================
+   MINI WEBSITE STATS
+========================= */
+
+.stats {
+
+    margin-top: 18px;
+
+    padding: 9px;
+
+    background: #e4edf4;
+
+    border: 1px dotted #8fa6b5;
+
+    text-align: center;
+
+    font-size: 11px;
+
+    color: #607681;
+
+}
+
+
+/* =========================
+   FOOTER
+========================= */
+
+#footer {
+
+    text-align: center;
+
+    border-top: 1px dotted #bca79e;
+
+    background: #f6eee8;
+
+    padding: 14px;
+
+    color: #806b63;
+
+    font-size: 11px;
+
+}
+
+
+/* =========================
+   LINKS
+========================= */
+
+.sidebar a {
+
+    color: #a34d6a;
+
+    font-weight: bold;
+
+    text-decoration: none;
+
+}
+
+
+.sidebar a:hover {
+
+    text-decoration: underline;
+
+}
+
+
+</style>
+
+</head>
+
+
+
+<body>
+
+
+<div id="page">
+
+
+<!-- =========================
+     HEADER
+========================= -->
+
+<div id="header">
+
+    <div class="logo">
+
+        Fondue For Two!
+
+    </div>
+
+
+    <div class="subtitle">
+
+        That's some hot dish!
+
+    </div>
+
+</div>
+
+
+
+<!-- =========================
+     NAVIGATION
+========================= -->
+
+<div id="nav">
+
+    <a href="#">Home</a>
+
+    <a href="#">The Show</a>
+
+    <a href="#">Guests</a>
+
+    <a href="#">Pictures</a>
+
+    <a href="#">Contact</a>
+
+</div>
+
+
+
+<!-- =========================
+     MAIN
+========================= -->
+
+<div id="main">
+
+
+<div class="columns">
+
+
+
+<!-- =========================
+     SIDEBAR
+========================= -->
+
+<div class="sidebar">
+
+
+<h3>
+
+    WELCOME!
+
+</h3>
+
+
+<p>
+
+    Welcome to the official
+    Fondue For Two website!
+
+</p>
+
+
+<p>
+
+    You're on the internet,
+    so you might as well stay
+    a while.
+
+</p>
+
+
+
+<!-- NEW EPISODE STICKER -->
+
+<div class="sticker">
+
+    ★<br>
+
+    NEW EPISODE!<br>
+
+    ★
+
+</div>
+
+
+
+<!-- FAN NOTE -->
+
+<div class="fan-note">
+
+    <strong>
+
+        FAN NOTE ♥
+
+    </strong>
+
+    <br><br>
+
+    I miss Santana :(
+
+    <br>
+
+    Please come back to
+    Fondue For Two soon!!
+
+</div>
+
+
+
+<!-- SANTANA NOTE -->
+
+<div class="santana-note">
+
+    <strong>
+
+        IMPORTANT MESSAGE:
+
+    </strong>
+
+    <br><br>
+
+    Santana,
+
+    <br>
+
+    say hello to
+    <b>Charli XCX</b>!!!
+
+    <br><br>
+
+    ♥ thank you ♥
+
+</div>
+
+
+
+<p>
+
+    <b>Webmaster note:</b>
+
+    <br>
+
+    This site looks best
+    on a normal computer.
+
+</p>
+
+
+<p>
+
+    Last updated:
+
+    <br>
+
+    <b>2012</b>
+
+</p>
+
+
+
+<!-- WEBSITE STATS -->
+
+<div class="stats">
+
+    Visitors today:
+
+    <b>017</b>
+
+    <br><br>
+
+    Total visitors:
+
+    <b>004283</b>
+
+    <br><br>
+
+    ★ ★ ★
+
+    <br>
+
+    Thanks for visiting!
+
+</div>
+
+
+
+</div>
+
+
+
+<!-- =========================
+     VIDEO / MAIN CONTENT
+========================= -->
+
+<div class="content">
+
+
+<h1>
+
+    Welcome to Fondue For Two!
+
+</h1>
+
+
+<div class="intro">
+
+    Brittany's internet talk show
+    is back with another very special episode.
+
+</div>
+
+
+
+<!-- VIDEO -->
+
+<div class="video-box">
+
+
+<video
+
+    id="video"
+
+    preload="metadata"
+
+    controls>
+
+
+    <source
+
+        src="video.mp4"
+
+        type="video/mp4">
+
+
+    Your browser does not support
+    HTML5 video.
+
+
+</video>
+
+
+
+<!-- PLAY SCREEN -->
+
+<div
+
+    id="playScreen"
+
+    class="play-screen">
+
+
+    <button
+
+        class="play-button">
+
+        ▶ PLAY!
+
+    </button>
+
+
+</div>
+
+
+</div>
+
+
+
+<!-- HOT DISH -->
+
+<div class="note">
+
+    <strong>
+
+        HOT DISH!
+
+    </strong>
+
+    <br>
+
+    Grab some fondue,
+    sit back and press play.
+
+    <br><br>
+
+    Today's episode is
+    <b>totally internet-worthy.</b>
+
+</div>
+
+
+
+<!-- EXTRA MESSAGE -->
+
+<div class="fan-note"
+
+     style="
+        margin-top:20px;
+        transform:rotate(.5deg);
+     ">
+
+    <strong>
+
+        ♥ FROM THE WEBSMASTER ♥
+
+    </strong>
+
+    <br><br>
+
+    Thanks for visiting
+    Fondue For Two!
+
+    <br>
+
+    Tell your friends.
+    Tell your mom.
+    Tell Lord Tubbington.
+
+    <br><br>
+
+    <i>
+
+        Leave a comment in the
+        guestbook!!!
+
+    </i>
+
+</div>
+
+
+
+</div>
+
+
+</div>
+
+</div>
+
+
+
+<!-- =========================
+     FOOTER
+========================= -->
+
+<div id="footer">
+
+    © 2012 Fondue For Two!
+
+    &nbsp; | &nbsp;
+
+    All Rights Reserved
+
+    &nbsp; | &nbsp;
+
+    Best viewed on a computer
+
+    <br><br>
+
+    ♥ Thanks for stopping by! ♥
+
+</div>
+
+
+
+</div>
+
+
+
+<!-- =========================
+     JAVASCRIPT
+========================= -->
+
+<script>
+
+
+const video =
+
+    document.getElementById("video");
+
+
+const playScreen =
+
+    document.getElementById("playScreen");
+
+
+
+/* PLAY BUTTON */
+
+playScreen.addEventListener(
+
+    "click",
+
+    function () {
+
+        video.play();
+
+        playScreen.classList.add("hidden");
+
+    }
+
+);
+
+
+
+/* HIDE PLAY BUTTON */
+
+video.addEventListener(
+
+    "play",
+
+    function () {
+
+        playScreen.classList.add("hidden");
+
+    }
+
+);
+
+
+
+/* SHOW PLAY BUTTON AGAIN */
+
+video.addEventListener(
+
+    "pause",
+
+    function () {
+
+        if (video.currentTime === 0) {
+
+            playScreen.classList.remove("hidden");
+
+        }
+
+    }
+
+);
+
+
+</script>
+
+
+</body>
+
+</html>
