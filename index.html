@@ -218,6 +218,9 @@ body{
     margin-bottom:14px;
 }
 
+
+/* VIDEO */
+
 .video-box{
     position:relative;
     width:100%;
@@ -236,6 +239,41 @@ video{
     object-fit:contain;
     background:black;
 }
+
+
+/* PULSANTONE PLAY */
+
+.play-screen{
+    position:absolute;
+    inset:0;
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    background:rgba(255,255,255,.08);
+    cursor:pointer;
+}
+
+.play-screen.hidden{
+    display:none;
+}
+
+.play-button{
+    padding:15px 27px;
+    border-radius:12px;
+    border:4px solid white;
+    background:#e56d91;
+    color:white;
+    font-family:"Comic Sans MS","Trebuchet MS",sans-serif;
+    font-size:24px;
+    font-weight:bold;
+    box-shadow:3px 3px 0 #783c50;
+    cursor:pointer;
+}
+
+.play-button:hover{
+    background:#d9547c;
+}
+
 
 .note{
     margin-top:17px;
@@ -365,6 +403,13 @@ video{
         object-fit:contain;
     }
 
+    .play-button{
+        padding:11px 20px;
+        font-size:19px;
+        border-width:3px;
+        box-shadow:2px 2px 0 #783c50;
+    }
+
     .note{
         width:100%;
         margin-top:15px;
@@ -442,6 +487,11 @@ video{
 
     .content h1{
         font-size:21px;
+    }
+
+    .play-button{
+        font-size:17px;
+        padding:10px 17px;
     }
 }
 
@@ -599,9 +649,9 @@ video{
 
                     <video
                         id="video"
+                        preload="metadata"
                         controls
                         playsinline
-                        preload="auto"
                     >
 
                         <source
@@ -612,6 +662,21 @@ video{
                         Your browser does not support HTML5 video.
 
                     </video>
+
+
+                    <div
+                        id="playScreen"
+                        class="play-screen"
+                    >
+
+                        <button
+                            class="play-button"
+                            type="button"
+                        >
+                            ▶ PLAY!
+                        </button>
+
+                    </div>
 
                 </div>
 
@@ -685,6 +750,43 @@ video{
 
 
 </div>
+
+
+<!-- PLAY BUTTON SCRIPT -->
+
+<script>
+
+const video = document.getElementById("video");
+const playScreen = document.getElementById("playScreen");
+
+playScreen.addEventListener("click", function(){
+
+    video.play();
+
+    playScreen.classList.add("hidden");
+
+});
+
+
+video.addEventListener("play", function(){
+
+    playScreen.classList.add("hidden");
+
+});
+
+
+video.addEventListener("pause", function(){
+
+    if(video.currentTime === 0){
+
+        playScreen.classList.remove("hidden");
+
+    }
+
+});
+
+</script>
+
 
 </body>
 </html>
